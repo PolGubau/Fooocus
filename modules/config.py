@@ -385,27 +385,27 @@ default_styles = get_config_item_or_set_default(
 )
 default_prompt_negative = get_config_item_or_set_default(
     key='default_prompt_negative',
-    default_value='',
+    default_value='ugly, sketch, drawing, anime, cartoon, 3d, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit',
     validator=lambda x: isinstance(x, str),
     disable_empty_as_none=True,
     expected_type=str
 )
 default_prompt = get_config_item_or_set_default(
     key='default_prompt',
-    default_value='',
+    default_value='A beautiful scenery with mountains and a river.',
     validator=lambda x: isinstance(x, str),
     disable_empty_as_none=True,
     expected_type=str
 )
 default_performance = get_config_item_or_set_default(
     key='default_performance',
-    default_value=Performance.SPEED.value,
+    default_value=Performance.QUALITY.value,
     validator=lambda x: x in Performance.values(),
     expected_type=str
 )
 default_image_prompt_checkbox = get_config_item_or_set_default(
     key='default_image_prompt_checkbox',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
@@ -447,7 +447,7 @@ default_output_format = get_config_item_or_set_default(
 )
 default_image_number = get_config_item_or_set_default(
     key='default_image_number',
-    default_value=2,
+    default_value=20,
     validator=lambda x: isinstance(x, int) and 1 <= x <= default_max_image_number,
     expected_type=int
 )
@@ -651,7 +651,7 @@ default_save_only_final_enhanced_image = get_config_item_or_set_default(
 )
 default_save_metadata_to_images = get_config_item_or_set_default(
     key='default_save_metadata_to_images',
-    default_value=False,
+    default_value=True,
     validator=lambda x: isinstance(x, bool),
     expected_type=bool
 )
@@ -663,7 +663,7 @@ default_metadata_scheme = get_config_item_or_set_default(
 )
 metadata_created_by = get_config_item_or_set_default(
     key='metadata_created_by',
-    default_value='',
+    default_value='Fooocus',
     validator=lambda x: isinstance(x, str),
     expected_type=str
 )
