@@ -100,7 +100,7 @@ try_load_deprecated_user_path_config()
 
 def get_presets():
     preset_folder = 'presets'
-    presets = ['initial']
+    presets = ['pony_v6']
     if not os.path.exists(preset_folder):
         print('No presets found.')
         return presets
@@ -392,7 +392,7 @@ default_prompt_negative = get_config_item_or_set_default(
 )
 default_prompt = get_config_item_or_set_default(
     key='default_prompt',
-    default_value='A beautiful scenery with mountains and a river.',
+    default_value=', ultra photo realism.',
     validator=lambda x: isinstance(x, str),
     disable_empty_as_none=True,
     expected_type=str
