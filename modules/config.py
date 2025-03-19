@@ -351,7 +351,7 @@ default_cfg_scale = get_config_item_or_set_default(
 )
 default_sample_sharpness = get_config_item_or_set_default(
     key='default_sample_sharpness',
-    default_value=2.0,
+    default_value=3.0,
     validator=lambda x: isinstance(x, numbers.Number),
     expected_type=numbers.Number
 )
@@ -447,7 +447,7 @@ default_output_format = get_config_item_or_set_default(
 )
 default_image_number = get_config_item_or_set_default(
     key='default_image_number',
-    default_value=20,
+    default_value=32,
     validator=lambda x: isinstance(x, int) and 1 <= x <= default_max_image_number,
     expected_type=int
 )
