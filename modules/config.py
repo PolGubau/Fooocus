@@ -351,7 +351,7 @@ default_cfg_scale = get_config_item_or_set_default(
 )
 default_sample_sharpness = get_config_item_or_set_default(
     key='default_sample_sharpness',
-    default_value=2.0,
+    default_value=3.5,
     validator=lambda x: isinstance(x, numbers.Number),
     expected_type=numbers.Number
 )
@@ -385,14 +385,14 @@ default_styles = get_config_item_or_set_default(
 )
 default_prompt_negative = get_config_item_or_set_default(
     key='default_prompt_negative',
-    default_value='',
+    default_value='ugly, bad anatomy, bad hands, bad face, low quality, low resolution, blurry, out of focus, worst quality, low quality, normal quality',
     validator=lambda x: isinstance(x, str),
     disable_empty_as_none=True,
     expected_type=str
 )
 default_prompt = get_config_item_or_set_default(
     key='default_prompt',
-    default_value='',
+    default_value='Ultra foto-realism person portrait, ',
     validator=lambda x: isinstance(x, str),
     disable_empty_as_none=True,
     expected_type=str
@@ -435,7 +435,7 @@ default_image_prompt_advanced_checkbox = get_config_item_or_set_default(
 )
 default_max_image_number = get_config_item_or_set_default(
     key='default_max_image_number',
-    default_value=32,
+    default_value=64,
     validator=lambda x: isinstance(x, int) and x >= 1,
     expected_type=int
 )
@@ -447,7 +447,7 @@ default_output_format = get_config_item_or_set_default(
 )
 default_image_number = get_config_item_or_set_default(
     key='default_image_number',
-    default_value=2,
+    default_value=6,
     validator=lambda x: isinstance(x, int) and 1 <= x <= default_max_image_number,
     expected_type=int
 )

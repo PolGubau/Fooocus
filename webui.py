@@ -89,7 +89,7 @@ def generate_clicked(task: worker.AsyncTask):
                             os.remove(filepath)
 
     execution_time = time.perf_counter() - execution_start_time
-    print(f'Total time: {execution_time:.2f} seconds')
+    print(f'Total time: {execution_time:.2f} s')
     return
 
 
@@ -212,50 +212,10 @@ with shared.gradio_root:
                             with gr.Column():
                                 uov_method = gr.Radio(label='Upscale or Variation:', choices=flags.uov_list, value=modules.config.default_uov_method)
                                 gr.HTML('<a href="https://github.com/lllyasviel/Fooocus/discussions/390" target="_blank">\U0001F4D4 Documentation</a>')
-                    with gr.Tab(label='Image Prompt', id='ip_tab') as ip_tab:
-                        with gr.Row():
-                            ip_images = []
-                            ip_types = []
-                            ip_stops = []
-                            ip_weights = []
-                            ip_ctrls = []
-                            ip_ad_cols = []
-                            for image_count in range(modules.config.default_controlnet_image_count):
-                                image_count += 1
-                                with gr.Column():
-                                    ip_image = grh.Image(label='Image', source='upload', type='numpy', show_label=False, height=300, value=modules.config.default_ip_images[image_count])
-                                    ip_images.append(ip_image)
-                                    ip_ctrls.append(ip_image)
-                                    with gr.Column(visible=modules.config.default_image_prompt_advanced_checkbox) as ad_col:
-                                        with gr.Row():
-                                            ip_stop = gr.Slider(label='Stop At', minimum=0.0, maximum=1.0, step=0.001, value=modules.config.default_ip_stop_ats[image_count])
-                                            ip_stops.append(ip_stop)
-                                            ip_ctrls.append(ip_stop)
 
-                                            ip_weight = gr.Slider(label='Weight', minimum=0.0, maximum=2.0, step=0.001, value=modules.config.default_ip_weights[image_count])
-                                            ip_weights.append(ip_weight)
-                                            ip_ctrls.append(ip_weight)
-
-                                        ip_type = gr.Radio(label='Type', choices=flags.ip_list, value=modules.config.default_ip_types[image_count], container=False)
-                                        ip_types.append(ip_type)
-                                        ip_ctrls.append(ip_type)
-
-                                        ip_type.change(lambda x: flags.default_parameters[x], inputs=[ip_type], outputs=[ip_stop, ip_weight], queue=False, show_progress=False)
-                                    ip_ad_cols.append(ad_col)
-                        ip_advanced = gr.Checkbox(label='Advanced', value=modules.config.default_image_prompt_advanced_checkbox, container=False)
-                        gr.HTML('* \"Image Prompt\" is powered by Fooocus Image Mixture Engine (v1.0.1). <a href="https://github.com/lllyasviel/Fooocus/discussions/557" target="_blank">\U0001F4D4 Documentation</a>')
-
-                        def ip_advance_checked(x):
-                            return [gr.update(visible=x)] * len(ip_ad_cols) + \
-                                [flags.default_ip] * len(ip_types) + \
-                                [flags.default_parameters[flags.default_ip][0]] * len(ip_stops) + \
-                                [flags.default_parameters[flags.default_ip][1]] * len(ip_weights)
-
-                        ip_advanced.change(ip_advance_checked, inputs=ip_advanced,
-                                           outputs=ip_ad_cols + ip_types + ip_stops + ip_weights,
-                                           queue=False, show_progress=False)
-
-                    with gr.Tab(label='Inpaint or Outpaint', id='inpaint_tab') as inpaint_tab:
+                
+                
+                    with gr.Tab(label='Inpaint', id='inpaint_tab') as inpaint_tab:
                         with gr.Row():
                             with gr.Column():
                                 inpaint_input_image = grh.Image(label='Image', source='upload', type='numpy', tool='sketch', height=500, brush_color="#FFFFFF", elem_id='inpaint_canvas', show_label=False)
@@ -331,6 +291,49 @@ with shared.gradio_root:
                                                                    inpaint_mask_advanced_options,
                                                                    example_inpaint_mask_dino_prompt_text],
                                                           queue=False, show_progress=False)
+
+                    with gr.Tab(label='Image Prompt', id='ip_tab') as ip_tab:
+                        with gr.Row():
+                            ip_images = []
+                            ip_types = []
+                            ip_stops = []
+                            ip_weights = []
+                            ip_ctrls = []
+                            ip_ad_cols = []
+                            for image_count in range(modules.config.default_controlnet_image_count):
+                                image_count += 1
+                                with gr.Column():
+                                    ip_image = grh.Image(label='Image', source='upload', type='numpy', show_label=False, height=300, value=modules.config.default_ip_images[image_count])
+                                    ip_images.append(ip_image)
+                                    ip_ctrls.append(ip_image)
+                                    with gr.Column(visible=modules.config.default_image_prompt_advanced_checkbox) as ad_col:
+                                        with gr.Row():
+                                            ip_stop = gr.Slider(label='Stop At', minimum=0.0, maximum=1.0, step=0.001, value=modules.config.default_ip_stop_ats[image_count])
+                                            ip_stops.append(ip_stop)
+                                            ip_ctrls.append(ip_stop)
+
+                                            ip_weight = gr.Slider(label='Weight', minimum=0.0, maximum=2.0, step=0.001, value=modules.config.default_ip_weights[image_count])
+                                            ip_weights.append(ip_weight)
+                                            ip_ctrls.append(ip_weight)
+
+                                        ip_type = gr.Radio(label='Type', choices=flags.ip_list, value=modules.config.default_ip_types[image_count], container=False)
+                                        ip_types.append(ip_type)
+                                        ip_ctrls.append(ip_type)
+
+                                        ip_type.change(lambda x: flags.default_parameters[x], inputs=[ip_type], outputs=[ip_stop, ip_weight], queue=False, show_progress=False)
+                                    ip_ad_cols.append(ad_col)
+                        ip_advanced = gr.Checkbox(label='Advanced', value=modules.config.default_image_prompt_advanced_checkbox, container=False)
+                        gr.HTML('* \"Image Prompt\" is powered by Fooocus Image Mixture Engine (v1.0.1). <a href="https://github.com/lllyasviel/Fooocus/discussions/557" target="_blank">\U0001F4D4 Documentation</a>')
+
+                        def ip_advance_checked(x):
+                            return [gr.update(visible=x)] * len(ip_ad_cols) + \
+                                [flags.default_ip] * len(ip_types) + \
+                                [flags.default_parameters[flags.default_ip][0]] * len(ip_stops) + \
+                                [flags.default_parameters[flags.default_ip][1]] * len(ip_weights)
+
+                        ip_advanced.change(ip_advance_checked, inputs=ip_advanced,
+                                           outputs=ip_ad_cols + ip_types + ip_stops + ip_weights,
+                                           queue=False, show_progress=False)
 
                     with gr.Tab(label='Describe', id='describe_tab') as describe_tab:
                         with gr.Row():
