@@ -48,6 +48,8 @@
     },
     "embeddings_downloads": {},
     "lora_downloads": {
+        "cum.safetensors": "https://civitai.com/api/download/models/973977?type=Model&format=SafeTensor",
+        "missio.safetensors": "https://huggingface.co/TenthWax/missionary/resolve/main/NSFW_Missionnary.safetensors",
         "blow.safetensors": "https://huggingface.co/Keltezaa/blowjob-pov-flux-lora/resolve/main/wsssssssssss.safetensors",
         "hands.safetensors": "https://huggingface.co/TenthWax/handjob/resolve/main/tug_dev_f1_k.safetensors",
         "sd_xl_offset_example-lora_1.0.safetensors": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_offset_example-lora_1.0.safetensors"
