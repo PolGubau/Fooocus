@@ -48,6 +48,7 @@
     },
     "embeddings_downloads": {},
     "lora_downloads": {
+        "cum.safetensors": "https://huggingface.co/master5000/Real-Cum/resolve/main/Real%20Cum.safetensors",
         "missio.safetensors": "https://huggingface.co/TenthWax/missionary/resolve/main/NSFW_Missionnary.safetensors",
         "blow.safetensors": "https://huggingface.co/Keltezaa/blowjob-pov-flux-lora/resolve/main/wsssssssssss.safetensors",
         "hands.safetensors": "https://huggingface.co/TenthWax/handjob/resolve/main/tug_dev_f1_k.safetensors",
