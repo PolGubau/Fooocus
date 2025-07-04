@@ -2,7 +2,7 @@
   "default_model": "uberRealisticPornMerge_urpmv12-inpainting.safetensors",
   "default_refiner": "None",
   "default_refiner_switch": 0.5,
-  "default_vae": "None",
+  "default_vae": "vae-ft-mse-840000-ema-pruned.safetensors",
   "default_loras": [
     [
       true,
@@ -48,5 +48,8 @@
     "uberRealisticPornMerge_urpmv12-inpainting.safetensors": "https://huggingface.co/dwarfbum/Uber-Realistic-Porn-Merge_URPM/resolve/main/uberRealisticPornMerge_urpmv12-inpainting.safetensors"
   },
   "embeddings_downloads": {},
-  "lora_downloads": {}
+  "lora_downloads": {},
+  "vae_downloads": {
+    "vae-ft-mse-840000-ema-pruned.safetensors": "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
+  }
 }
