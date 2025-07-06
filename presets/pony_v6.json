@@ -2,31 +2,30 @@
     "default_model": "ponyDiffusionV6XL.safetensors",
     "default_refiner": "None",
     "default_refiner_switch": 0.5,
-    "default_vae": "ponyDiffusionV6XL_vae.safetensors",
     "default_loras": [
         [
-            true,
-            "None",
+            false,
+            "Yorha 2B.safetensors",
             1.0
         ],
         [
-            true,
-            "None",
+            false,
+            "Frieren.safetensors",
             1.0
         ],
         [
-            true,
-            "None",
+            false,
+            "Deepthroat_pony_V1.0.safetensors",
             1.0
         ],
         [
-            true,
-            "None",
+            false,
+            "ReverseCowgirl_V1.0.safetensors",
             1.0
         ],
         [
-            true,
-            "None",
+            false,
+            "Minthara (BG3).safetensors",
             1.0
         ]
     ],
@@ -35,7 +34,7 @@
     "default_sampler": "dpmpp_2m_sde_gpu",
     "default_scheduler": "karras",
     "default_performance": "Speed",
-    "default_prompt": "utra photo realism, ",
+    "default_prompt": "",
     "default_prompt_negative": "",
     "default_styles": [
         "Fooocus Pony"
@@ -44,11 +43,19 @@
     "default_overwrite_step": -1,
     "default_inpaint_engine_version": "None",
     "checkpoint_downloads": {
-        "ponyDiffusionV6XL.safetensors": "https://huggingface.co/mashb1t/fav_models/resolve/main/fav/ponyDiffusionV6XL.safetensors"
+        "ponyDiffusionV6XL.safetensors": "https://civitai.com/api/download/models/324619?type=Model&format=SafeTensor&size=pruned&fp=fp16&token=5ef154bd2c9b2287680927c3dcefd9bd"
     },
-    "embeddings_downloads": {},
-    "lora_downloads": {},
-    "vae_downloads": {
-        "ponyDiffusionV6XL_vae.safetensors": "https://huggingface.co/mashb1t/fav_models/resolve/main/fav/ponyDiffusionV6XL_vae.safetensors"
-    }
+    "embeddings_downloads": {
+        "easynegative.safetensors": "https://civitai.com/api/download/models/9208?type=Model&format=SafeTensor&size=full&fp=fp16"
+    },
+    "lora_downloads": {
+        "Minthara (BG3).safetensors": "https://civitai.com/api/download/models/1058275?type=Model&format=SafeTensor&token=5ef154bd2c9b2287680927c3dcefd9bd",
+        "Yorha 2B.safetensors": "https://civitai.com/api/download/models/654190?type=Model&format=SafeTensor&token=5ef154bd2c9b2287680927c3dcefd9bd",
+        "Frieren.safetensors": "https://civitai.com/api/download/models/510984?type=Model&format=SafeTensor",
+        "Persephone.safetensors": "https://civitai.com/api/download/models/847437?type=Model&format=SafeTensor&token=5ef154bd2c9b2287680927c3dcefd9bd",
+        "Lilim.safetensors": "https://civitai.com/api/download/models/1032920?type=Model&format=SafeTensor&token=5ef154bd2c9b2287680927c3dcefd9bd",
+        "Deepthroat_pony_V1.0.safetensors": "https://civitai.com/api/download/models/814770?type=Model&format=SafeTensor&token=5ef154bd2c9b2287680927c3dcefd9bd",
+        "ReverseCowgirl_V1.0.safetensors": "https://civitai.com/api/download/models/1015252?type=Model&format=SafeTensor&token=5ef154bd2c9b2287680927c3dcefd9bd"
+    },
+    "vae_downloads": {}
 }
